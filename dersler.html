@@ -1,418 +1,697 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aldığım Dersler - Mehmet Emirhan Oğuz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <style>
-        /* Page Header */
-        .page-header {
-            min-height: 30vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 100px;
-            position: relative;
-            z-index: 1;
-        }
+      /* Page Header */
+      .page-header {
+        min-height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-top: 100px;
+        position: relative;
+        z-index: 1;
+      }
 
-        .page-header h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #7c3aed, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
+      .page-header h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, #7c3aed, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 0.5rem;
+      }
 
-        .page-header p {
-            color: #a0a0a6;
-            font-size: 1.1rem;
-        }
+      .page-header p {
+        color: #a0a0a6;
+        font-size: 1.1rem;
+      }
 
-        /* GNO Badge */
-        .gno-banner {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
-        }
+      /* GNO Badge */
+      .gno-banner {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 3rem;
+        position: relative;
+        z-index: 1;
+      }
 
-        .gno-card {
-            background: rgba(124, 58, 237, 0.08);
-            border: 1px solid rgba(124, 58, 237, 0.3);
-            border-radius: 16px;
-            padding: 1.2rem 2rem;
-            text-align: center;
-        }
+      .gno-card {
+        background: rgba(124, 58, 237, 0.08);
+        border: 1px solid rgba(124, 58, 237, 0.3);
+        border-radius: 16px;
+        padding: 1.2rem 2rem;
+        text-align: center;
+      }
 
-        .gno-card .gno-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #7c3aed;
-            margin-bottom: 0.3rem;
-        }
+      .gno-card .gno-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #7c3aed;
+        margin-bottom: 0.3rem;
+      }
 
-        .gno-card .gno-value {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #e0e0e6;
-        }
+      .gno-card .gno-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #e0e0e6;
+      }
 
-        /* Courses Section */
-        .courses-section {
-            padding: 0 2rem 6rem;
-            position: relative;
-            z-index: 1;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+      /* Courses Section */
+      .courses-section {
+        padding: 0 2rem 6rem;
+        position: relative;
+        z-index: 1;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
 
-        /* Semester Block */
-        .semester-block {
-            margin-bottom: 2.5rem;
-        }
+      /* Semester Block */
+      .semester-block {
+        margin-bottom: 2.5rem;
+      }
 
-        .semester-title {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #06b6d4;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
+      .semester-title {
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #06b6d4;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
 
-        .semester-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(6, 182, 212, 0.2);
-        }
+      .semester-title::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(6, 182, 212, 0.2);
+      }
 
-        /* Course Table */
-        .course-table {
-            width: 100%;
-            border-collapse: collapse;
-        }
+      /* Course Table */
+      .course-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
 
-        .course-table th {
-            text-align: left;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #606066;
-            padding: 0.6rem 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+      .course-table th {
+        text-align: left;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #606066;
+        padding: 0.6rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
 
-        .course-table td {
-            padding: 0.75rem 1rem;
-            font-size: 0.92rem;
-            color: #c0c0c6;
-            border-bottom: 1px solid rgba(255,255,255,0.04);
-        }
+      .course-table th:nth-child(1),
+      .course-table td:nth-child(1) {
+        width: 14%;
+      }
 
-        .course-table tr:last-child td {
-            border-bottom: none;
-        }
+      .course-table th:nth-child(2),
+      .course-table td:nth-child(2) {
+        width: 58%;
+      }
 
-        .course-table tbody tr {
-            transition: background 0.2s ease;
-        }
+      .course-table th:nth-child(3),
+      .course-table td:nth-child(3) {
+        width: 12%;
+      }
 
-        .course-table tbody tr:hover {
-            background: rgba(124, 58, 237, 0.06);
-        }
+      .course-table th:nth-child(4),
+      .course-table td:nth-child(4) {
+        width: 16%;
+      }
 
-        .course-code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: #7c3aed;
-            font-weight: 600;
-        }
+      .course-table td {
+        padding: 0.75rem 1rem;
+        font-size: 0.92rem;
+        color: #c0c0c6;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        vertical-align: middle;
+      }
 
-        /* Grade Badges */
-        .grade {
-            display: inline-block;
-            padding: 0.25rem 0.7rem;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.85rem;
-        }
+      .course-table tr:last-child td {
+        border-bottom: none;
+      }
 
-        .grade-AA { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
-        .grade-BA { background: rgba(6, 182, 212, 0.12); color: #06b6d4; border: 1px solid rgba(6,182,212,0.3); }
-        .grade-BB { background: rgba(124, 58, 237, 0.12); color: #a78bfa; border: 1px solid rgba(124,58,237,0.3); }
-        .grade-CB { background: rgba(245, 158, 11, 0.12); color: #f59e0b; border: 1px solid rgba(245,158,11,0.3); }
-        .grade-MU { background: rgba(100,100,100,0.1); color: #888; border: 1px solid rgba(100,100,100,0.2); }
-        .grade-ongoing { background: rgba(6, 182, 212, 0.06); color: #555; border: 1px solid rgba(6,182,212,0.1); font-style: italic; font-size: 0.75rem; }
+      .course-table tbody tr {
+        transition: background 0.2s ease;
+      }
 
-        /* Semester card wrapper */
-        .semester-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(124, 58, 237, 0.15);
-            border-radius: 12px;
-            overflow: hidden;
-        }
+      .course-table tbody tr:hover {
+        background: rgba(124, 58, 237, 0.06);
+      }
 
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #7c3aed;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: color 0.2s;
-            position: relative;
-            z-index: 1;
-            padding: 0 2rem;
-            margin-top: 1rem;
-        }
+      .course-code {
+        font-family: "Courier New", monospace;
+        font-size: 0.8rem;
+        color: #7c3aed;
+        font-weight: 600;
+      }
 
-        .back-link:hover { color: #a78bfa; }
+      /* Grade Badges */
+      .grade {
+        display: inline-block;
+        padding: 0.25rem 0.7rem;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+
+      .grade-AA {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+      .grade-BA {
+        background: rgba(6, 182, 212, 0.12);
+        color: #06b6d4;
+        border: 1px solid rgba(6, 182, 212, 0.3);
+      }
+      .grade-BB {
+        background: rgba(124, 58, 237, 0.12);
+        color: #a78bfa;
+        border: 1px solid rgba(124, 58, 237, 0.3);
+      }
+      .grade-CB {
+        background: rgba(245, 158, 11, 0.12);
+        color: #f59e0b;
+        border: 1px solid rgba(245, 158, 11, 0.3);
+      }
+      .grade-MU {
+        background: rgba(16, 185, 129, 0.15);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+      .grade-ongoing {
+        background: rgba(6, 182, 212, 0.06);
+        color: #555;
+        border: 1px solid rgba(6, 182, 212, 0.1);
+        font-style: italic;
+        font-size: 0.75rem;
+      }
+
+      /* Semester card wrapper */
+      .semester-card {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(124, 58, 237, 0.15);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #7c3aed;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        transition: color 0.2s;
+        position: relative;
+        z-index: 1;
+        padding: 0 2rem;
+        margin-top: 1rem;
+      }
+
+      .back-link:hover {
+        color: #a78bfa;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <canvas id="dot-canvas"></canvas>
     <div id="particles-container"></div>
 
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="navbar-content">
-            <div class="logo">MEO</div>
-            <ul class="nav-links">
-                <li><a href="index.html">Anasayfa</a></li>
-                <li><a href="dersler.html" style="color:#06b6d4">Alınan Dersler</a></li>
-            </ul>
-        </div>
+      <div class="navbar-content">
+        <div class="logo">MEO</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Anasayfa</a></li>
+          <li>
+            <a href="dersler.html" style="color: #06b6d4">Alınan Dersler</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Page Header -->
     <div class="page-header">
-        <div>
-            <h1>Alınan Dersler</h1>
-            <p>İzmir Bakırçay Üniversitesi · Bilgisayar Mühendisliği</p>
-        </div>
+      <div>
+        <h1>Alınan Dersler</h1>
+        <p>İzmir Bakırçay Üniversitesi · Bilgisayar Mühendisliği</p>
+      </div>
     </div>
 
     <!-- GNO Kartları -->
     <div class="gno-banner">
-        <div class="gno-card">
-            <div class="gno-label">Genel Not Ortalaması</div>
-            <div class="gno-value">3.39</div>
-        </div>
-        <div class="gno-card">
-            <div class="gno-label">Tamamlanan Kredi</div>
-            <div class="gno-value">118.5</div>
-        </div>
-        <div class="gno-card">
-            <div class="gno-label">Dönem</div>
-            <div class="gno-value">7. Yarıyıl</div>
-        </div>
+      <div class="gno-card">
+        <div class="gno-label">Genel Not Ortalaması</div>
+        <div class="gno-value">3.38</div>
+      </div>
+      <div class="gno-card">
+        <div class="gno-label">Tamamlanan Kredi</div>
+        <div class="gno-value">118.5</div>
+      </div>
+      <div class="gno-card">
+        <div class="gno-label">Dönem</div>
+        <div class="gno-value">7. Yarıyıl</div>
+      </div>
     </div>
 
     <!-- Courses -->
     <div class="courses-section">
-
-        <!-- 1. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">1. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">ATA101</td><td>Atatürk İlkeleri ve İnkılâp Tarihi I</td><td>2</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL1101</td><td>Bilgisayar Mühendisliğine Giriş</td><td>2</td><td><span class="grade grade-CB">CB</span></td></tr>
-                        <tr><td class="course-code">BIL1102</td><td>Programlamaya Giriş</td><td>4</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">MUH1001</td><td>Mühendislik Kültürünün Temelleri</td><td>1.5</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">TBB1111</td><td>Fizik I</td><td>4</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">TBB1131</td><td>Matematik I</td><td>4</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">TDL101</td><td>Türk Dili I</td><td>2</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">YDL101</td><td>İngilizce I</td><td>2</td><td><span class="grade grade-MU">MU</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 1. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">1. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">ATA101</td>
+                <td>Atatürk İlkeleri ve İnkılâp Tarihi I</td>
+                <td>2</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL1101</td>
+                <td>Bilgisayar Mühendisliğine Giriş</td>
+                <td>2</td>
+                <td><span class="grade grade-CB">CB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL1102</td>
+                <td>Programlamaya Giriş</td>
+                <td>4</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">MUH1001</td>
+                <td>Mühendislik Kültürünün Temelleri</td>
+                <td>1.5</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB1111</td>
+                <td>Fizik I</td>
+                <td>4</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB1131</td>
+                <td>Matematik I</td>
+                <td>4</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TDL101</td>
+                <td>Türk Dili I</td>
+                <td>2</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">YDL101</td>
+                <td>İngilizce I</td>
+                <td>2</td>
+                <td><span class="grade grade-MU">MU</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- 2. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">2. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">ATA102</td><td>Atatürk İlkeleri ve İnkılâp Tarihi II</td><td>2</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL1201</td><td>Ayrık Yapılar</td><td>3</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL1202</td><td>Bilgisayar Programlama</td><td>4</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL1203</td><td>Mühendislikte Proje Yönetimi</td><td>1.5</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">TBB1212</td><td>Fizik II</td><td>4</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">TBB1232</td><td>Matematik II</td><td>4</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">TDL102</td><td>Türk Dili II</td><td>2</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">YDL102</td><td>İngilizce II</td><td>2</td><td><span class="grade grade-MU">MU</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 2. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">2. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">ATA102</td>
+                <td>Atatürk İlkeleri ve İnkılâp Tarihi II</td>
+                <td>2</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL1201</td>
+                <td>Ayrık Yapılar</td>
+                <td>3</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL1202</td>
+                <td>Bilgisayar Programlama</td>
+                <td>4</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL1203</td>
+                <td>Mühendislikte Proje Yönetimi</td>
+                <td>1.5</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB1212</td>
+                <td>Fizik II</td>
+                <td>4</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB1232</td>
+                <td>Matematik II</td>
+                <td>4</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TDL102</td>
+                <td>Türk Dili II</td>
+                <td>2</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">YDL102</td>
+                <td>İngilizce II</td>
+                <td>2</td>
+                <td><span class="grade grade-MU">MU</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- 3. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">3. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">BIL2101</td><td>Veri Yapıları ve Algoritmalar</td><td>4</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL2102</td><td>Elektrik Devreleri ve Sayısal Sistemler</td><td>4</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">TBB1030</td><td>Lineer Cebir</td><td>3</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">TBB2131</td><td>Diferansiyel Denklemler</td><td>3</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">TBB2133</td><td>Olasılık ve İstatistik</td><td>3</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">ODK/AD217</td><td>İspanyolca I</td><td>3</td><td><span class="grade grade-AA">AA</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 3. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">3. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">BIL2101</td>
+                <td>Veri Yapıları ve Algoritmalar</td>
+                <td>4</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL2102</td>
+                <td>Elektrik Devreleri ve Sayısal Sistemler</td>
+                <td>4</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB1030</td>
+                <td>Lineer Cebir</td>
+                <td>3</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB2131</td>
+                <td>Diferansiyel Denklemler</td>
+                <td>3</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB2133</td>
+                <td>Olasılık ve İstatistik</td>
+                <td>3</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">ODK/AD217</td>
+                <td>İspanyolca I</td>
+                <td>3</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- 4. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">4. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">BIL2201</td><td>Sinyaller ve Sistemler</td><td>4</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL2202</td><td>Veri Organizasyonu ve Yönetimi</td><td>3</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL2203</td><td>Nesne Yönelimli Programlama</td><td>4</td><td><span class="grade grade-CB">CB</span></td></tr>
-                        <tr><td class="course-code">BIL2204</td><td>Dijital Mantık Tasarımı</td><td>3</td><td><span class="grade grade-CB">CB</span></td></tr>
-                        <tr><td class="course-code">TBB2236</td><td>Nümerik Analiz</td><td>3</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">MÜH/AD202</td><td>Mühendisler İçin Özel Amaçlı İngilizce II</td><td>3</td><td><span class="grade grade-BA">BA</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 4. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">4. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">BIL2201</td>
+                <td>Sinyaller ve Sistemler</td>
+                <td>4</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL2202</td>
+                <td>Veri Organizasyonu ve Yönetimi</td>
+                <td>3</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL2203</td>
+                <td>Nesne Yönelimli Programlama</td>
+                <td>4</td>
+                <td><span class="grade grade-CB">CB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL2204</td>
+                <td>Dijital Mantık Tasarımı</td>
+                <td>3</td>
+                <td><span class="grade grade-CB">CB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">TBB2236</td>
+                <td>Nümerik Analiz</td>
+                <td>3</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">MÜH/AD202</td>
+                <td>Mühendisler İçin Özel Amaçlı İngilizce II</td>
+                <td>3</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- 5. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">5. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">BIL3101</td><td>Bilişim Etiği</td><td>2</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">BIL3102</td><td>Yazılım Mühendisliği</td><td>3</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">BIL3103</td><td>Bilgisayar Mimarisi ve Organizasyonu</td><td>3</td><td><span class="grade grade-CB">CB</span></td></tr>
-                        <tr><td class="course-code">BIL3104</td><td>Veritabanı</td><td>3</td><td><span class="grade grade-CB">CB</span></td></tr>
-                        <tr><td class="course-code">BIL3105</td><td>Veri Bilimi ve Makine Öğrenmesine Giriş</td><td>3.5</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">BIL3106</td><td>Hesaplama Teorisi</td><td>3</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">BIL3111</td><td>Mesleki İngilizce</td><td>2</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">ISG301</td><td>İş Sağlığı ve Güvenliği I</td><td>2</td><td><span class="grade grade-AA">AA</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 5. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">5. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">BIL3101</td>
+                <td>Bilişim Etiği</td>
+                <td>2</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3102</td>
+                <td>Yazılım Mühendisliği</td>
+                <td>3</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3103</td>
+                <td>Bilgisayar Mimarisi ve Organizasyonu</td>
+                <td>3</td>
+                <td><span class="grade grade-CB">CB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3104</td>
+                <td>Veritabanı</td>
+                <td>3</td>
+                <td><span class="grade grade-CB">CB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3105</td>
+                <td>Veri Bilimi ve Makine Öğrenmesine Giriş</td>
+                <td>3.5</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3106</td>
+                <td>Hesaplama Teorisi</td>
+                <td>3</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3111</td>
+                <td>Mesleki İngilizce</td>
+                <td>2</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">ISG301</td>
+                <td>İş Sağlığı ve Güvenliği I</td>
+                <td>2</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- 6. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">6. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">BIL3201</td><td>Bilgisayar Ağları</td><td>3</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">BIL3202</td><td>İşletim Sistemleri</td><td>3</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">BIL3203</td><td>Gömülü Sistemler</td><td>4</td><td><span class="grade grade-BB">BB</span></td></tr>
-                        <tr><td class="course-code">BIL3204</td><td>Yazılım Mimari ve Tasarımı</td><td>3</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">BIL4036</td><td>Yapay Zekanın Temelleri</td><td>3</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">ISG302</td><td>İş Sağlığı ve Güvenliği II</td><td>2</td><td><span class="grade grade-AA">AA</span></td></tr>
-                        <tr><td class="course-code">MUH3211</td><td>Takım Çalışması</td><td>2</td><td><span class="grade grade-AA">AA</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 6. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">6. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">BIL3201</td>
+                <td>Bilgisayar Ağları</td>
+                <td>3</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3202</td>
+                <td>İşletim Sistemleri</td>
+                <td>3</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3203</td>
+                <td>Gömülü Sistemler</td>
+                <td>4</td>
+                <td><span class="grade grade-BB">BB</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL3204</td>
+                <td>Yazılım Mimari ve Tasarımı</td>
+                <td>3</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL4036</td>
+                <td>Yapay Zekanın Temelleri</td>
+                <td>3</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">ISG302</td>
+                <td>İş Sağlığı ve Güvenliği II</td>
+                <td>2</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">MUH3211</td>
+                <td>Takım Çalışması</td>
+                <td>2</td>
+                <td><span class="grade grade-AA">AA</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
 
-        <!-- 7. Yarıyıl -->
-        <div class="semester-block">
-            <div class="semester-title">7. Yarıyıl</div>
-            <div class="semester-card">
-                <table class="course-table">
-                    <thead>
-                        <tr>
-                            <th>Kod</th>
-                            <th>Ders Adı</th>
-                            <th>Kredi</th>
-                            <th>Not</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td class="course-code">BIL4009</td><td>Yazılım Gereksinim Analizi</td><td>3</td><td><span class="grade grade-BA">BA</span></td></tr>
-                        <tr><td class="course-code">BIL4101</td><td>Staj</td><td>0</td><td><span class="grade grade-MU">BL</span></td></tr>
-                        <tr><td class="course-code">BIL4102</td><td>Bitirme Projesi</td><td>1</td><td><span class="grade grade-ongoing">Devam Ediyor</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- 7. Yarıyıl -->
+      <div class="semester-block">
+        <div class="semester-title">7. Yarıyıl</div>
+        <div class="semester-card">
+          <table class="course-table">
+            <thead>
+              <tr>
+                <th>Kod</th>
+                <th>Ders Adı</th>
+                <th>Kredi</th>
+                <th>Not</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="course-code">BIL4009</td>
+                <td>Yazılım Gereksinim Analizi</td>
+                <td>3</td>
+                <td><span class="grade grade-BA">BA</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL4101</td>
+                <td>Staj</td>
+                <td>0</td>
+                <td><span class="grade grade-AA">BL</span></td>
+              </tr>
+              <tr>
+                <td class="course-code">BIL4102</td>
+                <td>Bitirme Projesi</td>
+                <td>1</td>
+                <td><span class="grade grade-ongoing">Devam Ediyor</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2026 Mehmet Emirhan Oğuz. Tüm Hakları Saklıdır.</p>
+      <p>&copy; 2026 Mehmet Emirhan Oğuz. Tüm Hakları Saklıdır.</p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
