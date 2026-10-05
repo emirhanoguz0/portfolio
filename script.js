@@ -119,6 +119,9 @@ const codeCommands = [
 const particleColors = ['#7c3aed', '#06b6d4', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6', '#ec4899'];
 
 function createCodeParticle(x, y) {
+    const container = document.getElementById('particles-container');
+    if (!container) return;
+
     const particle = document.createElement('div');
     particle.className = 'code-particle';
     particle.textContent = codeCommands[Math.floor(Math.random() * codeCommands.length)];
@@ -126,12 +129,12 @@ function createCodeParticle(x, y) {
     particle.style.top = y + 'px';
     particle.style.color = particleColors[Math.floor(Math.random() * particleColors.length)];
 
-    document.getElementById('particles-container').appendChild(particle);
+    container.appendChild(particle);
 
     // Remove particle after animation
     setTimeout(() => {
         particle.remove();
-    }, 1500);
+    }, 1400);
 }
 
 document.addEventListener('click', (e) => {
