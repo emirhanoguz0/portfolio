@@ -23,8 +23,6 @@
           <li><a href="#home">Anasayfa</a></li>
           <li><a href="#about">Hakkımda</a></li>
           <li><a href="#projects">Projeler</a></li>
-          <li><a href="#dl">Derin Öğrenme</a></li>
-          <li><a href="#ml">Makine Öğrenmesi</a></li>
           <li><a href="dersler.html">Alınan Dersler</a></li>
           <li><a href="emirhan_oguz_cv.pdf" target="_blank">CV (PDF)</a></li>
           <li><a href="#contact">İletişim</a></li>
@@ -77,10 +75,16 @@
           <h3 class="skills-title">Yetenekler</h3>
           <div class="skills-grid">
             <div class="skill-category">
-              <h4>Makine Öğrenmesi & Veri</h4>
+              <h4>Makine Öğrenmesi & Derin Öğrenme</h4>
               <div class="skill-tags">
-                <span class="skill-tag">scikit-learn</span>
                 <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">TensorFlow / Keras</span>
+                <span class="skill-tag">TFLite</span>
+                <span class="skill-tag">YOLO</span>
+                <span class="skill-tag">RF-DETR</span>
+                <span class="skill-tag">DINOv2</span>
+                <span class="skill-tag">Bilgisayarlı Görü</span>
+                <span class="skill-tag">scikit-learn</span>
                 <span class="skill-tag">LightGBM</span>
                 <span class="skill-tag">XGBoost</span>
                 <span class="skill-tag">CatBoost</span>
@@ -98,6 +102,9 @@
                 <span class="skill-tag">TypeScript</span>
                 <span class="skill-tag">JavaScript</span>
                 <span class="skill-tag">C#</span>
+                <span class="skill-tag">Dart</span>
+                <span class="skill-tag">GDScript</span>
+                <span class="skill-tag">Kotlin</span>
                 <span class="skill-tag">SQL</span>
                 <span class="skill-tag">Assembly</span>
               </div>
@@ -120,13 +127,23 @@
               </div>
             </div>
             <div class="skill-category">
+              <h4>Mobil & Oyun</h4>
+              <div class="skill-tags">
+                <span class="skill-tag">Flutter</span>
+                <span class="skill-tag">Android</span>
+                <span class="skill-tag">Godot 4</span>
+                <span class="skill-tag">Unity</span>
+              </div>
+            </div>
+            <div class="skill-category">
               <h4>Araçlar & Yöntemler</h4>
               <div class="skill-tags">
                 <span class="skill-tag">Git & CI/CD</span>
-                <span class="skill-tag">Birim Testleri (pytest, Vitest)</span>
+                <span class="skill-tag">Otomatik Testler (pytest, Vitest, Flutter, Godot)</span>
                 <span class="skill-tag">Feature Engineering</span>
                 <span class="skill-tag">OOF Doğrulama</span>
-                <span class="skill-tag">YZ Destekli Geliştirme</span>
+                <span class="skill-tag">Deney Tasarımı & Bootstrap</span>
+                <span class="skill-tag">AI Ajan Orkestrasyonu</span>
               </div>
             </div>
           </div>
@@ -167,6 +184,58 @@
               class="card-link"
               >Canlıda Oyna →</a
             >
+          </div>
+
+          <!-- ElementalRoguelike -->
+          <div class="project-card">
+            <div class="card-icon">⚔️</div>
+            <div class="score-badge violet">🔵 Geliştirme Aşamasında — Aksiyon Roguelike</div>
+            <h3>ElementalRoguelike</h3>
+            <p>
+              Godot 4 ile geliştirdiğim, beş element (Su, Toprak, Ateş, Hava,
+              Yıldırım) üzerine kurulu aksiyon roguelike; arenada dalga ve boss
+              savaşları. Katmanlı ekonomi ve kalıcı ilerleme, eşik ve sinerjili
+              stat sistemi, ayrı renklendirilen PNG katmanlı karakter sistemi;
+              headless otomatik testler ve performans ölçümüyle geliştirildi.
+              Orkestratör bir model altında paralel çalışan AI kodlama
+              ajanlarıyla geliştirdim: işi ayrı çalışma kopyalarına bölüp
+              ajanlara dağıttım, çıktıları inceleyip birleştirdim.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Godot 4</span>
+              <span class="tag">GDScript</span>
+              <span class="tag">Python</span>
+              <span class="tag">Oyun Geliştirme</span>
+              <span class="tag">AI Ajanları</span>
+            </div>
+          </div>
+
+          <!-- Hexpert -->
+          <div class="project-card">
+            <div class="card-icon">🎲</div>
+            <div class="score-badge violet">🔵 Devam Ediyor — Android Uygulaması</div>
+            <h3>Hexpert</h3>
+            <p>
+              Altıgen karolu masa oyunlarında (Catan ile uyumlu) oyuncu sayısı
+              ve sırasına göre en iyi başlangıç yerleşimlerini öneren, tamamen
+              telefonda ve internetsiz çalışan Android uygulaması. Saf Dart
+              analiz motoru rakip seçimlerini simüle ediyor, taslak sırasında
+              öneriyi güncelliyor; ada senaryoları kataloğu da modellendi.
+              Önerilerin işe yaradığı açık kaynak bir simülatörde bot
+              oyunlarıyla, eşleştirilmiş deney ve bootstrap güven
+              aralıklarıyla istatistiksel olarak doğrulandı. Fotoğraftan
+              tahtayı tanıyan cihaz üstü TFLite hattı ve veri toplama aracı
+              hazır, model eğitimi sürüyor. Ürün sahibi olarak tasarımı ve
+              kararları yönettim; kod, AI kodlama ajanlarıyla geliştirildi.
+            </p>
+            <div class="card-tags">
+              <span class="tag">Flutter</span>
+              <span class="tag">Dart</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">TFLite</span>
+              <span class="tag">Bilgisayarlı Görü</span>
+              <span class="tag">Deney Tasarımı</span>
+            </div>
           </div>
 
           <!-- AI İndirme Köprüsü -->
@@ -371,12 +440,12 @@
       </div>
     </section>
 
-    <!-- Derin Öğrenme & Bilgisayarlı Görü -->
-    <section id="dl" class="projects">
+    <!-- Derin Öğrenme & Makine Öğrenmesi -->
+    <section id="ai" class="projects">
       <div class="container">
-        <h2>Derin Öğrenme & Bilgisayarlı Görü</h2>
+        <h2>Derin Öğrenme & Makine Öğrenmesi</h2>
         <p class="section-sub">
-          Görüntülerden anlam çıkaran, gerçek bir probleme çözüm üreten derin öğrenme projelerim.
+          Görüntülerden anlam çıkaran derin öğrenme projelerim ile Kaggle yarışmaları ve doğrulanabilir metriklerle kanıtlanmış modelleme çalışmalarım.
         </p>
         <div class="projects-grid">
           <!-- Bitirme Projesi: Diş Röntgeni Analizi -->
@@ -419,18 +488,6 @@
               <span class="tag">Gerçek Zamanlı</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Makine Öğrenmesi & Tahmin Modelleri -->
-    <section id="ml" class="projects">
-      <div class="container">
-        <h2>Makine Öğrenmesi & Tahmin Modelleri</h2>
-        <p class="section-sub">
-          Son dönemdeki Kaggle yarışmaları ve doğrulanabilir metriklerle kanıtlanmış modelleme çalışmalarım.
-        </p>
-        <div class="projects-grid">
           <!-- S6E10 -->
           <div class="project-card">
             <div class="card-icon">✈️</div>
